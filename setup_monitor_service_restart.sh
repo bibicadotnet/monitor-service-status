@@ -2,5 +2,5 @@ sudo wget --no-check-certificate https://raw.githubusercontent.com/bibicadotnet/
 chmod +x /usr/local/bin/monitor_service_restart.sh
 nohup /usr/local/bin/monitor_service_restart.sh >> ./out 2>&1 <&- &
 crontab -l > monitor_service_restart
-echo "@reboot nohup /usr/local/bin/monitor_service.sh >> ./out 2>&1 <&- &" >> monitor_service_restart
+echo "@reboot nohup /usr/local/bin/monitor_service_restart.sh >> ./out 2>&1 <&- &" >> monitor_service_restart
 crontab monitor_service_restart
