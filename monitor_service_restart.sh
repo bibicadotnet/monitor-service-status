@@ -17,7 +17,7 @@ fi
 # Check if Nginx web server is running  (Thay bằng dịch vụ webserver trên VPS của bạn)
 if ! systemctl is-active --quiet nginx.service; then
   # If not running, restart and send message to Telegram
-    sudo service mysql restart
+    sudo service nginx restart
     MESSAGE="Nginx Service was down. Restarting now"
     curl -s -X POST https://api.telegram.org/bot$BOT_API_KEY/sendMessage -d chat_id=$CHAT_ID -d text="$MESSAGE"
 fi
